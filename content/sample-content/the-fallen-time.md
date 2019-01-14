@@ -3,13 +3,12 @@ title: "The Fallen Time"
 cover: "https://unsplash.it/400/300/?random?TheFallenTime"
 date: "01/02/2017"
 category: "another one"
-slug: "/the-fallen-time-custom-slug"
+slug: "/sample-content/the-fallen-time-custom-slug"
 tags:
     - test
     - something
     - tagging
 ---
-# Autolyci eminus retenta
 
 ## Hoc domum solitos veteremque nostrum
 
