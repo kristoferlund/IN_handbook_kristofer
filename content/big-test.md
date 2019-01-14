@@ -1,7 +1,13 @@
 ---
-title: "Lesson Two"
+title: "Big Test"
+cover: "https://unsplash.it/400/300/?random?BigTest"
+category: "moar"
+date: "01/03/2018"
+slug: "Big-Sample_Test"
+tags:
+    - test
+    - huge
 ---
-
 
 # NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
 
@@ -16,18 +22,18 @@ You can play around with Markdown on our [live demo page](http://www.markdown-he
 
 ##### Table of Contents
 
-* [Headers](#headers)
-* [Emphasis](#emphasis)
-* [Lists](#lists)
-* [Links](#links)
-* [Images](#images)
-* [Code and Syntax Highlighting](#code)
-* [Tables](#tables)
-* [Blockquotes](#blockquotes)
-* [Inline HTML](#html)
-* [Horizontal Rule](#hr)
-* [Line Breaks](#lines)
-* [YouTube Videos](#videos)
+[Headers](#headers)
+[Emphasis](#emphasis)
+[Lists](#lists)
+[Links](#links)
+[Images](#images)
+[Code and Syntax Highlighting](#code)
+[Tables](#tables)
+[Blockquotes](#blockquotes)
+[Inline HTML](#html)
+[Horizontal Rule](#hr)
+[Line Breaks](#lines)
+[YouTube Videos](#videos)
 
 <a name="headers"/>
 

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Welcome",
+    "slug": "/welcome",
+    "subnodes": [
+      {
+        "node": {
+          "title": "Welcome Subpage",
+          "slug": "/welcome-subpage"
+        }
+      }
+    ]
+  },
+  {
+    "title": "The Fallen Time",
+    "slug": "/the-fallen-time-custom-slug"
+  },
+  {
+    "title": "Big Test",
+    "slug": "/big-sample-test"
+  }
+]
