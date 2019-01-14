@@ -1,9 +1,9 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { MdWarning } from "react-icons/md";
-import { Link } from "gatsby";
+import React from 'react'
+import Helmet from 'react-helmet'
+import { MdWarning } from 'react-icons/md'
+import { Link } from 'gatsby'
 
-import config from "../../data/SiteConfig";
+import config from '../../data/SiteConfig'
 
 export default class NotFound extends React.Component {
   render() {
@@ -24,7 +24,7 @@ export default class NotFound extends React.Component {
               <MdWarning />
             </h1>
             <h1>Oh no, you are lost - page not found.</h1>
-            Try looking
+            Try looking 
             {' '}
             <Link to="/">here</Link>
             {' '}
@@ -32,6 +32,6 @@ instead.
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

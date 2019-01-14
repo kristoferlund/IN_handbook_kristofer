@@ -1,63 +1,68 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { MdMenu } from "react-icons/md";
-import Sidebar from "react-sidebar";
+import React from 'react'
+import Helmet from 'react-helmet'
+import { MdMenu } from 'react-icons/md'
+import Sidebar from 'react-sidebar'
 
-import config from "../../data/SiteConfig";
-import Nav from "../components/Nav";
+import config from '../../data/SiteConfig'
+import Nav from '../components/Nav'
 
-let mql;
+let mql
 if (typeof window !== `undefined`) {
-  mql = window.matchMedia(`(min-width: 800px)`);
+  mql = window.matchMedia(`(min-width: 800px)`)
 }
 
 export default class MainLayout extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     if (typeof mql !== `undefined`) {
       this.state = {
         sidebarDocked: mql.matches,
         sidebarOpen: false
-      };
+      }
+    } else {
+      this.state = {
+        sidebarDocked: true,
+        sidebarOpen: false
+      }
     }
 
-    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
-    this.toggleSidebar = this.toggleSidebar.bind(this);
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this)
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
+    this.toggleSidebar = this.toggleSidebar.bind(this)
   }
 
   componentWillMount() {
     if (typeof mql !== `undefined`) {
-      mql.addListener(this.mediaQueryChanged);
+      mql.addListener(this.mediaQueryChanged)
     }
   }
 
   componentWillUnmount() {
     if (typeof mql !== `undefined`) {
-      mql.removeListener(this.mediaQueryChanged);
+      mql.removeListener(this.mediaQueryChanged)
     }
   }
 
   onSetSidebarOpen(open) {
-    this.setState({ sidebarOpen: open });
+    this.setState({ sidebarOpen: open })
   }
 
   mediaQueryChanged() {
-    this.setState({ sidebarDocked: mql.matches, sidebarOpen: false });
+    this.setState({ sidebarDocked: mql.matches, sidebarOpen: false })
   }
 
   toggleSidebar() {
-    const { sidebarDocked } = this.state;
+    const { sidebarDocked } = this.state
     if (sidebarDocked) {
-      this.setState({ sidebarDocked: false, sidebarOpen: false });
+      this.setState({ sidebarDocked: false, sidebarOpen: false })
     } else {
-      this.setState({ sidebarDocked: true, sidebarOpen: true });
+      this.setState({ sidebarDocked: true, sidebarOpen: true })
     }
   }
 
   render() {
-    const { children, data, pageContext } = this.props;
-    const { sidebarOpen, sidebarDocked } = this.state;
+    const { children, data, pageContext } = this.props
+    const { sidebarOpen, sidebarDocked } = this.state
     return (
       <Sidebar
         sidebar={<Nav navNode={data.nav} slug={pageContext.slug} />}
@@ -114,6 +119,6 @@ export default class MainLayout extends React.Component {
           {children}
         </div>
       </Sidebar>
-    );
+    )
   }
 }
