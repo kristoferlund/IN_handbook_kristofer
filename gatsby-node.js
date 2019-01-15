@@ -57,7 +57,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: 'relativePath',
-      value: fileNode.relativePath
+      value: `/${fileNode.relativePath}`
     });
 
     if (

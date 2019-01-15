@@ -54,13 +54,13 @@ function coverImage(cover) {
 function gitHubBlame(relativePath) {
   return `${config.gitHubBaseUrl}/${config.gitHubRepositoryName}/blame/${
     config.gitHubRepositoryBranch
-  }/${config.contentFolder}/${relativePath}`;
+  }/${config.contentFolder}${relativePath}`;
 }
 
 function gitHubEdit(relativePath) {
   return `${config.gitHubBaseUrl}/${config.gitHubRepositoryName}/edit/${
     config.gitHubRepositoryBranch
-  }/${config.contentFolder}/${relativePath}`;
+  }/${config.contentFolder}${relativePath}`;
 }
 
 export default class PostTemplate extends React.Component {
