@@ -6,9 +6,10 @@ import Sidebar from 'react-sidebar';
 import config from '../../data/SiteConfig';
 import Nav from '../components/Nav';
 
+const MIN_WIDTH = 1000;
 let mql;
 if (typeof window !== `undefined`) {
-  mql = window.matchMedia(`(min-width: 800px)`);
+  mql = window.matchMedia(`(min-width: ${MIN_WIDTH}px)`);
 }
 
 export default class MainLayout extends React.Component {
@@ -52,11 +53,17 @@ export default class MainLayout extends React.Component {
   }
 
   toggleSidebar() {
-    const { sidebarDocked } = this.state;
-    if (sidebarDocked) {
-      this.setState({ sidebarDocked: false, sidebarOpen: false });
+    const { sidebarDocked, sidebarOpen } = this.state;
+    if (mql.matches) {
+      if (sidebarDocked) {
+        this.setState({ sidebarDocked: false, sidebarOpen: false });
+      } else {
+        this.setState({ sidebarDocked: true, sidebarOpen: true });
+      }
+    } else if (sidebarOpen) {
+      this.setState({ sidebarOpen: false });
     } else {
-      this.setState({ sidebarDocked: true, sidebarOpen: true });
+      this.setState({ sidebarOpen: true });
     }
   }
 
@@ -71,9 +78,11 @@ export default class MainLayout extends React.Component {
         onSetOpen={this.onSetSidebarOpen}
         defaultSidebarWidth={300}
         shadow={false}
+        sidebarClassName="bg-white"
+        contentClassName="bl b--moon-gray"
         styles={{ sidebar: { width: 300 } }}
       >
-        <div className="bl b--moon-gray">
+        <div>
           <Helmet>
             <meta name="description" content={config.siteDescription} />
             <link

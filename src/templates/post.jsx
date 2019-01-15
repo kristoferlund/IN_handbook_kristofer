@@ -10,10 +10,16 @@ import SEO from '../components/SEO/SEO';
 import config from '../../data/SiteConfig';
 import { renderAst } from '../util/Rehype';
 
+let mql;
+if (typeof window !== `undefined`) {
+  mql = window.matchMedia(`(min-width: 800px)`);
+}
+
 function styleToc(toc) {
   // Hack hack;
   let newToc = toc;
   if (typeof newToc !== 'undefined') {
+    // debugger;
     newToc = _.replace(
       newToc,
       /<ul>/g,
@@ -26,6 +32,8 @@ function styleToc(toc) {
     );
     newToc = _.replace(newToc, /<a/g, '<a class="link dim blue f6 lh-copy"');
     newToc = _.replace(newToc, /<p/g, '<p class="ma0"');
+    newToc = _.replace(newToc, /(&#x3C;code([^>]+)>)/gi, '');
+    newToc = _.replace(newToc, /(&#x3C;\/code>)/gi, '');
   }
   return newToc;
 }
@@ -45,6 +53,46 @@ function coverImage(cover) {
 }
 
 export default class PostTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    if (typeof mql !== `undefined`) {
+      this.state = {
+        contentsOpen: mql.matches
+      };
+    } else {
+      this.state = {
+        contentsOpen: true
+      };
+    }
+
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
+    this.displayContents = this.displayContents.bind(this);
+  }
+
+  componentWillMount() {
+    if (typeof mql !== `undefined`) {
+      mql.addListener(this.mediaQueryChanged);
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof mql !== `undefined`) {
+      mql.removeListener(this.mediaQueryChanged);
+    }
+  }
+
+  mediaQueryChanged() {
+    this.setState({ contentsOpen: mql.matches });
+  }
+
+  displayContents() {
+    const { contentsOpen } = this.state;
+    if (contentsOpen) {
+      return { width: 250, display: 'block' };
+    }
+    return { display: 'none' };
+  }
+
   render() {
     const { pageContext, data } = this.props;
     const frontMatter = data.post.frontmatter;
@@ -73,8 +121,11 @@ export default class PostTemplate extends React.Component {
                 <PostTags tags={frontMatter.tags} />
               </div>
             </div>
-            <div className="mw5 pa3">
-              <div className="f6 bl gray b--moon-gray pt3 pb3">
+            <div className="pa3 ml3 mr3" style={this.displayContents()}>
+              <div
+                className="f6 bl gray b--moon-gray pt3 pb3"
+                style={{ width: 250 }}
+              >
                 <MdToc className="f4 relative pl3" style={{ top: 5 }} />
                 {' '}
                 CONTENTS
