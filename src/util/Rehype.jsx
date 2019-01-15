@@ -47,9 +47,6 @@ const A = styled.a.attrs({
 const BLOCKQUOTE = styled.blockquote.attrs({
   className: 'bl b--light-gray bw3 ma3 pl3'
 })``;
-// const CODE = styled.code.attrs({
-//   className: 'br4 bg-light-gray pa2'
-// })``;
 
 class Code extends React.Component {
   render() {

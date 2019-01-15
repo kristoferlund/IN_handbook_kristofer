@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import _ from 'lodash';
-import { MdToc } from 'react-icons/md';
+import { MdToc, MdEdit, MdHistory } from 'react-icons/md';
 
 import Layout from '../layout';
 import PostTags from '../components/PostTags/PostTags';
@@ -19,7 +19,6 @@ function styleToc(toc) {
   // Hack hack;
   let newToc = toc;
   if (typeof newToc !== 'undefined') {
-    // debugger;
     newToc = _.replace(
       newToc,
       /<ul>/g,
@@ -52,21 +51,33 @@ function coverImage(cover) {
   return null;
 }
 
+function gitHubBlame(relativePath) {
+  return `${config.gitHubBaseUrl}/${config.gitHubRepositoryName}/blame/${
+    config.gitHubRepositoryBranch
+  }/${config.contentFolder}/${relativePath}`;
+}
+
+function gitHubEdit(relativePath) {
+  return `${config.gitHubBaseUrl}/${config.gitHubRepositoryName}/edit/${
+    config.gitHubRepositoryBranch
+  }/${config.contentFolder}/${relativePath}`;
+}
+
 export default class PostTemplate extends React.Component {
   constructor(props) {
     super(props);
     if (typeof mql !== `undefined`) {
       this.state = {
-        contentsOpen: mql.matches
+        tocOpen: mql.matches
       };
     } else {
       this.state = {
-        contentsOpen: true
+        tocOpen: true
       };
     }
 
     this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
-    this.displayContents = this.displayContents.bind(this);
+    this.displayToc = this.displayToc.bind(this);
   }
 
   componentWillMount() {
@@ -82,12 +93,12 @@ export default class PostTemplate extends React.Component {
   }
 
   mediaQueryChanged() {
-    this.setState({ contentsOpen: mql.matches });
+    this.setState({ tocOpen: mql.matches });
   }
 
-  displayContents() {
-    const { contentsOpen } = this.state;
-    if (contentsOpen) {
+  displayToc() {
+    const { tocOpen } = this.state;
+    if (tocOpen) {
       return { width: 250, display: 'block' };
     }
     return { display: 'none' };
@@ -96,39 +107,59 @@ export default class PostTemplate extends React.Component {
   render() {
     const { pageContext, data } = this.props;
     const frontMatter = data.post.frontmatter;
-    if (!frontMatter.id) {
-      frontMatter.id = pageContext.slug;
-    }
-    if (!frontMatter.category_id) {
-      frontMatter.category_id = config.postDefaultCategoryID;
-    }
+    const { relativePath } = data.post.fields;
     return (
       <Layout pageContext={pageContext} data={data}>
         <Helmet>
           <title>{`${frontMatter.title} | ${config.siteTitle}`}</title>
           <body className="w-100 sans-serif pa0 near-black" />
         </Helmet>
+
         <SEO postPath={pageContext.slug} postNode={data.post} postSEO />
 
         <div className="flex">
           <div className="w-100 flex justify-center ">
             <div className="w-100 mw7 pa3">
+              <div className="w-100 tr">
+                <a
+                  href={gitHubEdit(relativePath)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Suggest an edit"
+                >
+                  <MdEdit className="f3 gray ba b--light-gray pa1 mr1" />
+                </a>
+                <a
+                  href={gitHubBlame(relativePath)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="View edit history"
+                >
+                  <MdHistory className="f3 gray ba b--light-gray pa1" />
+                </a>
+              </div>
+
               {iconImage(frontMatter.icon)}
+
               {coverImage(frontMatter.cover)}
+
               <h1 className="f1 sans-serif lh-title">{frontMatter.title}</h1>
+
               {renderAst(data.post.htmlAst)}
+
               <div className="post-meta">
                 <PostTags tags={frontMatter.tags} />
               </div>
             </div>
-            <div className="pa3 ml3 mr3" style={this.displayContents()}>
+            <div className="pa3 ml3 mr3" style={this.displayToc()}>
               <div
-                className="f6 bl gray b--moon-gray pt3 pb3"
+                className="f6 bl gray b--moon-gray pt1 pb3"
                 style={{ width: 250 }}
               >
                 <MdToc className="f4 relative pl3" style={{ top: 5 }} />
                 {' '}
-                CONTENTS
+ON THIS
+                PAGE
                 <div
                   dangerouslySetInnerHTML={{
                     __html: styleToc(data.post.tableOfContents)
@@ -149,14 +180,17 @@ export const pageQuery = graphql`
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       htmlAst
       tableOfContents(pathToSlugField: "frontmatter.slug")
+      fields {
+        relativePath
+      }
       frontmatter {
+        slug
         title
         cover
         icon
         date
         category
         tags
-        slug
       }
     }
     nav: allSiteNavJson {

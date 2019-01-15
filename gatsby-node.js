@@ -53,6 +53,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent);
     const parsedFilePath = path.parse(fileNode.relativePath);
+
+    createNodeField({
+      node,
+      name: 'relativePath',
+      value: fileNode.relativePath
+    });
+
     if (
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
@@ -114,6 +121,7 @@ exports.createPages = ({ graphql, actions }) => {
                   }
                   fields {
                     slug
+                    relativePath
                   }
                 }
               }
