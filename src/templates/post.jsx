@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import _ from 'lodash';
-import { MdToc, MdEdit, MdHistory } from 'react-icons/md';
+import { MdToc, MdEdit, MdHistory, MdNoteAdd } from 'react-icons/md';
 
 import Layout from '../layout';
 import PostTags from '../components/PostTags/PostTags';
@@ -121,6 +121,14 @@ export default class PostTemplate extends React.Component {
           <div className="w-100 flex justify-center ">
             <div className="w-100 mw7 pa3">
               <div className="w-100 tr">
+                <a
+                  href={config.gitHubNewIssueUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Create a new page"
+                >
+                  <MdNoteAdd className="f3 gray ba b--light-gray pa1 mr1" />
+                </a>
                 <a
                   href={gitHubEdit(relativePath)}
                   target="_blank"

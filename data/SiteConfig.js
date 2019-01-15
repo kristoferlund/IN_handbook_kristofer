@@ -11,6 +11,8 @@ module.exports = {
   gitHubBaseUrl: 'https://github.com',
   gitHubRepositoryName: 'kristoferlund/IN_handbook_kristofer',
   gitHubRepositoryBranch: 'master',
+  gitHubNewIssueUrl:
+    'https://github.com/initiativets/handbook/issues/new?assignees=&labels=content&template=new-content-issue-template.md&title=',
   // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: '1825356251115265', // FB Application ID for using app insights
