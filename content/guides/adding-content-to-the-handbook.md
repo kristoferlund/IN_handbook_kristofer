@@ -14,7 +14,7 @@ So, you have identified something that needs to be added to the handbook? Great!
 
 You need a **[GitHub account](https://github.com/join)** to add content to the handbook. If you don't have an account, visit [https://github.com/join](https://github.com/join) and create one.
 
-If you have no idea what GitHub is, please read this guide first #17
+If you have no idea what GitHub is, please read [this guide first](/guides/github)
 
 When you have created an account, you need to be invited as a member of the IN GitHub organisation. #21
 
