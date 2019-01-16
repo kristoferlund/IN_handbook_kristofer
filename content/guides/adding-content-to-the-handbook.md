@@ -28,9 +28,9 @@ From [GitHub Guides](https://guides.github.com/features/issues/):
 
 > Issues are a great way to keep track of tasks, enhancements, and bugs for your projects. They’re kind of like email - except they can be shared and discussed with the rest of your team.
 
-For the context of the handbook, you could for example view issues as post-its on a whiteboard during a co-creation session, or as shared documents with a memory and a direction.
+For the context of the handbook, you could view issues as post-its on a whiteboard during a co-creation session, or as shared documents with a memory and a direction.
 
-- One issue represents one article or idea
+- One issue represents one page in the handbook - one topic
 - Issues are added to a virtual whiteboard called the [Handbook editorial process](https://github.com/initiativets/handbook/projects)
 
 ### Creating an issue
@@ -39,13 +39,11 @@ For the context of the handbook, you could for example view issues as post-its o
 
 #### 2. Create an issue
 
-Navigate to [/initiativets/handbook/issues](/initiativets/handbook/issues) and press `New issue`.
+Press the `Create new page` button in the top of this page. **(IMAGE)**
 
-#### 3. Select a template
+Or, navigate to [/initiativets/handbook/issues](/initiativets/handbook/issues) and press `New issue`.
 
-**(TODO: More info needed here)**
-
-#### 4. Start writing!
+#### 3. Start writing!
 
 Try to follow the template as best you can, answering the questions in the driver statement etc. A clear driver for writing an article is a sure way to persuade the member community that the content is needed.
 
@@ -59,17 +57,17 @@ We haven't made a style guide yet. Maybe we don't need one?  If you think so, ad
 
 [GitLab - Documentation style guidelines](https://docs.gitlab.com/ee/development/documentation/styleguide.html)
 
-#### 5. Tag content with label `content`
+**TIP:** Use the `Preview` function to see your markdown rendered.
 
-This helps distinguish this issue from other kinds of issues - bug reports, etc.
-
-[Applying labels to issues and pull requests](https://help.github.com/articles/applying-labels-to-issues-and-pull-requests/)
-
-**(TODO: can we automate this? Can e.g. templates have default labels?)**
-
-#### 6. Add issue to project board
+#### 4. Finished writing? Add issue to project board before submitting.
 
 Add the issue to the project board by clicking `Projects` in the right hand column and selecting `Handbook editorial process`.
+
+#### 5. Submit your work!
+
+Klick the `Submit new issue`button. 
+
+Your issue now lives in the [Handbook editorial process](https://github.com/initiativets/handbook/projects/1).
 
 ## Process
 
