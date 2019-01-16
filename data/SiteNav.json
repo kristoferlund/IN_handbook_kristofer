@@ -19,8 +19,22 @@
       },
       {
         "node": {
-          "title": "Adding content to the handbook",
-          "slug": "/guides/adding-content-to-the-handbook"
+          "title": "Handbook",
+          "slug": "/guides/handbook",
+          "subnodes": [
+            {
+              "node": {
+                "title": "Add/edit content",
+                "slug": "/guides/handbook/add-edit"
+              }
+            },
+            {
+              "node": {
+                "title": "Editorial process",
+                "slug": "/guides/handbook/editorial-process"
+              }
+            }
+          ]
         }
       }
     ]

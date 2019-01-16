@@ -210,6 +210,12 @@ export const pageQuery = graphql`
             node {
               slug
               title
+              subnodes {
+                node {
+                  slug
+                  title
+                }
+              }
             }
           }
         }

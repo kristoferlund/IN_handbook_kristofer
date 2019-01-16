@@ -1,23 +1,23 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
 class Nav extends React.Component {
   static postLink(post, slug) {
-    let className = "link dim ";
+    let className = 'link dim ';
     if (post.path === slug) {
-      className += "blue ";
+      className += 'blue ';
     } else {
-      className += "near-black ";
+      className += 'near-black ';
     }
     switch (post.indent) {
       case 2:
-        className += "pl3 ";
+        className += 'pl3 ';
         break;
       case 3:
-        className += "pl4 ";
+        className += 'pl4 ';
         break;
       case 4:
-        className += "pl5 ";
+        className += 'pl5 ';
         break;
       default:
     }
