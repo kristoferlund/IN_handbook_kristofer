@@ -51,16 +51,39 @@ function coverImage(cover) {
   return null;
 }
 
-function gitHubBlame(relativePath) {
+function gitHubBlameUrl(relativePath) {
   return `${config.gitHubBaseUrl}/${config.gitHubRepositoryName}/blame/${
     config.gitHubRepositoryBranch
   }/${config.contentFolder}${relativePath}`;
 }
 
-function gitHubEdit(relativePath) {
-  return `${config.gitHubBaseUrl}/${config.gitHubRepositoryName}/edit/${
+function gitHubSourceUrl(relativePath) {
+  return `${config.gitHubBaseUrl}/${config.gitHubRepositoryName}/${
     config.gitHubRepositoryBranch
   }/${config.contentFolder}${relativePath}`;
+}
+
+function gitHubRawSourceUrl(relativePath) {
+  return `${config.gitHubRawBaseUrl}/${config.gitHubRepositoryName}/${
+    config.gitHubRepositoryBranch
+  }/${config.contentFolder}${relativePath}`;
+}
+
+function gitHubNewIssueUrl() {
+  return `${config.gitHubNewIssueUrl}&template=new-content-issue-template.md`;
+}
+
+function doGitHubEdit(relativePath, title) {
+  fetch(gitHubRawSourceUrl(relativePath)).then(response => {
+    if (response.status === 200) {
+      response.text().then(responseText => {
+        const url = `${config.gitHubNewIssueUrl}&title=${encodeURI(
+          title
+        )}&body=${encodeURI(responseText)}`;
+        document.location.replace(url);
+      });
+    }
+  });
 }
 
 export default class PostTemplate extends React.Component {
@@ -78,6 +101,7 @@ export default class PostTemplate extends React.Component {
 
     this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
     this.displayToc = this.displayToc.bind(this);
+    this.onEditClick = this.onEditClick.bind(this);
   }
 
   componentWillMount() {
@@ -92,8 +116,12 @@ export default class PostTemplate extends React.Component {
     }
   }
 
-  mediaQueryChanged() {
-    this.setState({ tocOpen: mql.matches });
+  onEditClick() {
+    const { data } = this.props;
+    const { relativePath } = data.post.fields;
+    const frontMatter = data.post.frontmatter;
+
+    doGitHubEdit(relativePath, frontMatter.title);
   }
 
   displayToc() {
@@ -102,6 +130,10 @@ export default class PostTemplate extends React.Component {
       return { width: 250, display: 'block' };
     }
     return { display: 'none' };
+  }
+
+  mediaQueryChanged() {
+    this.setState({ tocOpen: mql.matches });
   }
 
   render() {
@@ -122,24 +154,22 @@ export default class PostTemplate extends React.Component {
             <div className="w-100 mw7 pa3">
               <div className="w-100 tr">
                 <a
-                  href={config.gitHubNewIssueUrl}
-                  target="_blank"
+                  href={gitHubNewIssueUrl()}
                   rel="noopener noreferrer"
                   title="Create a new page"
                 >
                   <MdNoteAdd className="f3 gray ba b--light-gray pa1 mr1" />
                 </a>
                 <a
-                  href={gitHubEdit(relativePath)}
-                  target="_blank"
+                  href="#"
                   rel="noopener noreferrer"
                   title="Suggest an edit"
+                  onClick={this.onEditClick}
                 >
                   <MdEdit className="f3 gray ba b--light-gray pa1 mr1" />
                 </a>
                 <a
-                  href={gitHubBlame(relativePath)}
-                  target="_blank"
+                  href={gitHubBlameUrl(relativePath)}
                   rel="noopener noreferrer"
                   title="View edit history"
                 >

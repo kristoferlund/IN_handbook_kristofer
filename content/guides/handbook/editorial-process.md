@@ -24,14 +24,14 @@ Ready to start writing? After having found consent, move issue to this column, t
 
 ### 4. `Editing`
 
-When you feel you have a solid draft, move the issue to this column. The issue is now in editing mode where it will receive finishing touches from the IN editorial team **(???)**. Before moving issue to the next column, seek consent to publish **(HOW?)**.
+When you feel you have a solid draft, move the issue to this column. The issue is now in editing mode where it will receive finishing touches from the IN editorial team. Before moving issue to the next column, seek consent to publish.
 
 **(CLARIFY: Is there a role - editor - responsible for editing?)**
 **(CLARIFY: How is this consent achieved - who / how many / etc?)**
 
 ### 5. `Ready to be published`
 
-Issues in this column are awaiting to be published. The content of the issue is added to the handbook by Initiativet Tech Team #25
+Issues in this column are awaiting to be published. The content of the issue is added to the handbook by [Initiativet Tech Team](/circles/intt).
 
 ### 6. `Published / Celebrate`
 
