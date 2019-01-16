@@ -85,10 +85,6 @@ export default class MainLayout extends React.Component {
         <div>
           <Helmet>
             <meta name="description" content={config.siteDescription} />
-            <link
-              rel="stylesheet"
-              href="https://unpkg.com/tachyons/css/tachyons.min.css"
-            />
           </Helmet>
           <header className="w-100 pa3">
             <div className="db dt-ns mw9 center w-100">

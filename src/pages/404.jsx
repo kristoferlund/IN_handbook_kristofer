@@ -1,9 +1,9 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { MdWarning } from 'react-icons/md'
-import { Link } from 'gatsby'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { MdWarning } from 'react-icons/md';
+import { Link } from 'gatsby';
 
-import config from '../../data/SiteConfig'
+import config from '../../data/SiteConfig';
 
 export default class NotFound extends React.Component {
   render() {
@@ -11,10 +11,6 @@ export default class NotFound extends React.Component {
       <div className="flex">
         <Helmet>
           <meta name="description" content={config.siteDescription} />
-          <link
-            rel="stylesheet"
-            href="https://unpkg.com/tachyons/css/tachyons.min.css"
-          />
           <title>{`${config.siteTitle} | Not found`}</title>
           <body className="w-100 sans-serif pa0 near-black" />
         </Helmet>
@@ -32,6 +28,6 @@ instead.
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
