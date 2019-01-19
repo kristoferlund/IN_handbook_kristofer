@@ -13,13 +13,13 @@ So, Initiativet is a **decentralised network of individuals forming a co-created
 
 Here are some popular links to get you started:
 
-What is Initiativet?
-(LINK)
+What is Initiativet?  
+(LINK)  
 (LINK)
 
-How can I can contribute?
-(LINK)
-(LINK)
+How can I can contribute?  
+(LINK)   
+(LINK)  
 
 I would like to host a political lab in my community.
 (LINK)
