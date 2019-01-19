@@ -1,7 +1,7 @@
 ---
 title: Circles
-date: 01/01/2019
-slug: /circles
+date: 2019-01-01 00:00:00 Z
+slug: "/circles"
 ---
 
 How do circles work?

@@ -1,6 +1,6 @@
 ---
-title: "Add/edit content"
-date: "01/01/2019"
+title: Add/edit content
+date: 2019-01-01 00:00:00 Z
 slug: "/guides/handbook/add-edit"
 ---
 

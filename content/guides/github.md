@@ -1,6 +1,6 @@
 ---
-title: "GitHub"
-date: "01/01/2019"
+title: GitHub
+date: 2019-01-01 00:00:00 Z
 slug: "/guides/github"
 ---
 
