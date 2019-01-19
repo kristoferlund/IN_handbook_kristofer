@@ -1,13 +1,13 @@
 ---
-title: "The Fallen Time"
-cover: "https://unsplash.it/400/300/?random?TheFallenTime"
-date: "01/02/2017"
-category: "another one"
+title: The Fallen Time
+date: 2017-02-01 00:00:00 Z
+cover: https://unsplash.it/400/300/?random?TheFallenTime
+category: another one
 slug: "/sample-content/the-fallen-time-custom-slug"
 tags:
-    - test
-    - something
-    - tagging
+- test
+- something
+- tagging
 ---
 
 ## Hoc domum solitos veteremque nostrum
