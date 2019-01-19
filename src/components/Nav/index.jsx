@@ -45,9 +45,9 @@ class Nav extends React.Component {
   }
 
   render() {
-    const { slug } = this.props;
+    const { slug, navNode } = this.props;
     const postList = [];
-    Nav.fillPostList(postList, this.props.navNode.edges, 0);
+    Nav.fillPostList(postList, navNode.edges, 0);
 
     return (
       <div className="index-container">
