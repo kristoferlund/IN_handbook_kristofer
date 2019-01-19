@@ -1,12 +1,12 @@
 ---
-title: Big Test
-date: 2018-03-01 00:00:00 Z
-cover: https://unsplash.it/400/300/?random?BigTest
-category: moar
+title: "Big Test"
+cover: "https://unsplash.it/400/300/?random?BigTest"
+category: "moar"
+date: "01/03/2018"
 slug: "/sample-content/big-sample-test"
 tags:
-- test
-- huge
+    - test
+    - huge
 ---
 
 ## NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.

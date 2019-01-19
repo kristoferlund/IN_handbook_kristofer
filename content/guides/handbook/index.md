@@ -1,6 +1,6 @@
 ---
-title: Intro - handbook editing
-date: 2019-01-01 00:00:00 Z
+title: "Intro - handbook editing"
+date: "01/01/2019"
 slug: "/guides/handbook"
 ---
 

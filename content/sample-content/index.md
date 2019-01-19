@@ -1,6 +1,6 @@
 ---
-title: Sample Content
-date: 2019-01-01 00:00:00 Z
+title: "Sample Content"
+date: "01/01/2019"
 slug: "/sample-content"
 ---
 

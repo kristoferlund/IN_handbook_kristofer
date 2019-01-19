@@ -1,7 +1,7 @@
 ---
-title: The Initiativet handbook
-date: 2019-01-02 00:00:00 Z
-icon: http://initiativet.se/wp-content/uploads/2017/11/Initiativet_gr%C3%B6n-vit_2018.png
+title: "The Initiativet handbook"
+icon: "http://initiativet.se/wp-content/uploads/2017/11/Initiativet_gr%C3%B6n-vit_2018.png"
+date: "02/01/2019"
 slug: "/welcome"
 ---
 

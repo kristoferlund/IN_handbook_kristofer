@@ -1,6 +1,6 @@
 ---
-title: Editorial process
-date: 2019-01-01 00:00:00 Z
+title: "Editorial process"
+date: "01/01/2019"
 slug: "/guides/handbook/editorial-process"
 ---
 

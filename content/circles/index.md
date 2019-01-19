@@ -1,10 +1,10 @@
 ---
 title: Circles
-date: 2019-01-01 00:00:00 Z
-slug: "/circles"
+date: 01/01/2019
+slug: /circles
 ---
 
-How do circles work??
+How do circles work?
 
 ## How do I creat a circle?
 
