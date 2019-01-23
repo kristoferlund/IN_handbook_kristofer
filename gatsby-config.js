@@ -1,5 +1,5 @@
-const urljoin = require('url-join');
-const config = require('./data/SiteConfig');
+const urljoin = require('url-join')
+const config = require('./data/SiteConfig')
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -115,11 +115,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-feed',
       options: {
-        setup(ref) {
-          const ret = ref.query.site.siteMetadata.rssMetadata;
-          ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-          ret.generator = 'GatsbyJS Material Starter';
-          return ret;
+        setup (ref) {
+          const ret = ref.query.site.siteMetadata.rssMetadata
+          ret.allMarkdownRemark = ref.query.allMarkdownRemark
+          ret.generator = 'GatsbyJS Material Starter'
+          return ret
         },
         query: `
         {
@@ -140,8 +140,8 @@ module.exports = {
       `,
         feeds: [
           {
-            serialize(ctx) {
-              const { rssMetadata } = ctx.query.site.siteMetadata;
+            serialize (ctx) {
+              const { rssMetadata } = ctx.query.site.siteMetadata
               return ctx.query.allMarkdownRemark.edges.map(edge => ({
                 categories: edge.node.frontmatter.tags,
                 date: edge.node.fields.date,
@@ -151,7 +151,7 @@ module.exports = {
                 url: rssMetadata.site_url + edge.node.fields.slug,
                 guid: rssMetadata.site_url + edge.node.fields.slug,
                 custom_elements: [{ 'content:encoded': edge.node.html }]
-              }));
+              }))
             },
             query: `
             {
@@ -188,4 +188,4 @@ module.exports = {
       }
     }
   ]
-};
+}

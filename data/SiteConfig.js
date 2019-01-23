@@ -8,12 +8,15 @@ module.exports = {
   siteDescription: 'A GatsbyJS stater with Advanced design in mind.',
   contentFolder: 'content',
   deafultPost: '/welcome',
+  // GitHub
   gitHubBaseUrl: 'https://github.com',
   gitHubRawBaseUrl: 'https://raw.githubusercontent.com',
-  gitHubRepositoryName: 'kristoferlund/IN_handbook_kristofer',
-  gitHubRepositoryBranch: 'master',
-  gitHubNewIssueUrl:
-    'https://github.com/initiativets/handbook/issues/new?projects=initiativets/handbook/1&labels=content',
+  gitHubOwner: 'initiativets',
+  gitHubRepo: 'handbook',
+  gitHubBranch: 'master',
+  templateNewIssueUrl: '.in-github-bridge/templates/new_issue.md',
+  // HandBot
+  handBotBaseUrl: 'http://localhost:3000',
   // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: '1825356251115265', // FB Application ID for using app insights
@@ -49,4 +52,4 @@ module.exports = {
   copyright: 'Copyright © 2017. Advanced User', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#c62828', // Used for setting manifest and progress theme colors.
   backgroundColor: '#e0e0e0' // Used for setting manifest background color.
-};
+}
